@@ -7,3 +7,6 @@
 a. Full path to spider dir.
 b. You gpt api-key.
 c. mode- qpl, concise, verbose, MixPrompt
+
+example:
+project_qpl.py "C:\text to sql proj\spider" "sk-5ZOnNxGZfWpGbqlPi" "qpl"
