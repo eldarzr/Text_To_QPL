@@ -54,6 +54,10 @@ if len(args) > 1:
     spider_database_folder_path = args[1]
 else:
     spider_database_folder_path = r"C:\Users\אלדר זריהן\Documents\לימודים\סמסטר ו'\חזית\text to sql proj\spider"
+if len(args) > 2:
+    api_key = args[2]
+else:
+    api_key = None
 os.chdir(spider_database_folder_path)
 seed = 3248524
 train_spider = read_train_json("train_spider")
@@ -442,7 +446,7 @@ def gpt_real(prompt, temp=0.4, n=3):
 
     try:
         print("attempt to query gpt")
-        openai.api_key = "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"
+        openai.api_key = api_key
         model = "gpt-3.5-turbo-16k"
         response = openai.ChatCompletion.create(model=model, messages=messages, max_tokens=450, temperature=temp, n=n)
         print(response['choices'][0]['message']['content'])
@@ -747,7 +751,7 @@ def main(mode="qpl", dataset=dev):
 
 
 if __name__ == '__main__':
-    if len(args) > 2:
-        main(args[2])
+    if len(args) > 3:
+        main(args[3])
     else:
         main()
